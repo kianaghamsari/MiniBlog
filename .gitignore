@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.egg-info/
+*.egg
+
+# Virtual env
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Logs
+*.log
+
+# Byte-compiled
+*.pyc
+
+# Environment variables
+.env
+
+# Docker
+__pycache__/
+*.pid
+*.sock
+
+# Migrations except empty __init__.py
+*/migrations/*
+!*/migrations/__init__.py
