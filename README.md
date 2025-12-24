@@ -71,6 +71,32 @@ JWT-based authentication is implemented using `djangorestframework-simplejwt`.
 - `PUT /api/comments/{id}/`
 - `DELETE /api/comments/{id}/`
 
+
+---
+
+## Redis Caching
+
+In this project, **Redis** is used as a caching layer to improve API performance and reduce database load.
+
+The main use case is caching the **posts list endpoint**, which is a read-heavy endpoint and does not change frequently.
+
+**How it works:**
+
+* On the first request to `GET /api/posts/`, data is fetched from the database and stored in Redis.
+* Subsequent requests are served directly from Redis for 5 minutes.
+* Whenever a post is created, updated, or deleted, the cache is invalidated to ensure data consistency.
+
+**Benefits:**
+
+* Reduced number of database queries
+* Faster response times for read operations
+* Better scalability for high-traffic scenarios
+
+Redis is integrated using **django-redis** and is fully containerized via Docker.
+
+
+
+
 ---
 
 ## Run Project with Docker
